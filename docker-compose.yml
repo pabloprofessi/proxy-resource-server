@@ -1,0 +1,22 @@
+proxy-resource-server:
+  build: .
+  command: flask run --host 0.0.0.0 --reload --debugger
+  ports:
+    - "5000:5000"
+  volumes:
+    - ./:/app/
+#  links:
+#    - db:db
+  environment:
+    FLASK_APP: runner.py
+
+#db:
+#  image: mysql:5.7
+#  environment:
+#    MYSQL_ROOT_PASSWORD: tarantula
+#    MYSQL_DATABASE: tarantula
+#    MYSQL_USER: tarantula
+#    MYSQL_PASSWORD: tarantula
+#  volumes:
+#      - ./config/devdata:/var/lib/mysql 
+
